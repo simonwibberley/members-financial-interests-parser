@@ -130,6 +130,7 @@ def get_members_interests(url, year):
     members = {}
     for e in elements:
         if link_pattern.match(e.attrib['href']):
+
             url = e.attrib['href']
             member = url.replace("_", " ").replace(".htm", "")
             data = get_interests(url, year)
@@ -193,7 +194,7 @@ def get_members_party():
             party = element.tail.strip()
             members[member] = party
             # print(member, party)
-        # print(members)
+        #print(members)
         with open("members.pickle", 'wb') as f:
             pickle.dump(members, f)
 
@@ -205,9 +206,9 @@ base_urls = [
     # { 'year' : "2012-13", 'url' : "https://www.publications.parliament.uk/pa/cm/cmregmem/130507/", "listing" : "part1contents.htm"},
     # { 'year' : "2013-14", 'url' : "https://www.publications.parliament.uk/pa/cm/cmregmem/140602/", "listing" : "part1contents.htm"},
     # { 'year' : "2014-15", 'url' : "https://www.publications.parliament.uk/pa/cm/cmregmem/150330/", "listing" : "part1contents.htm"},
-    { 'year' : "2015-16", 'url' : "https://www.publications.parliament.uk/pa/cm/cmregmem/160516/", "listing" : "contents.htm"},
-    { 'year' : "2016-17", 'url' : "https://www.publications.parliament.uk/pa/cm/cmregmem/170410/", "listing" : "contents.htm"}
-
+    # { 'year' : "2015-16", 'url' : "https://www.publications.parliament.uk/pa/cm/cmregmem/160516/", "listing" : "contents.htm"},
+    # { 'year' : "2016-17", 'url' : "https://www.publications.parliament.uk/pa/cm/cmregmem/170410/", "listing" : "contents.htm"},
+     { 'year' : "2017-19", 'url' : "https://www.publications.parliament.uk/pa/cm/cmregmem/190304/", "listing" : "contents.htm"},
 ]
 #base_url = "http://www.publications.parliament.uk/pa/cm/cmregmem/151109/"
 base_url = "https://www.publications.parliament.uk/pa/cm/cmregmem/170410/"
